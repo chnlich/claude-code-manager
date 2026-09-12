@@ -55,9 +55,9 @@ class LazyStructlogLogger:
   ``import structlog`` eagerly pulls structlog.dev (rich, pygments, the traceback
   formatter) — ~67 ms of the CLI import floor the M92 collector measures and ~97 ms
   of the memory-CLI invocation wall the M98 collector measures — while the modules
-  binding ``log`` emit only on warning and error paths those CLI invocations never
-  reach. A test may monkeypatch an attribute on a module's ``log``: the patch lands
-  on this object, which every later lookup reaches.
+  binding ``log`` emit only on log lines those CLI invocations never reach. A test
+  may monkeypatch an attribute on a module's ``log``: the patch lands on this
+  object, which every later lookup reaches.
   """
 
   def __getattr__(self, name: str) -> Any:
